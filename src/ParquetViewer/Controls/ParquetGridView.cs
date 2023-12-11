@@ -177,9 +177,17 @@ namespace ParquetViewer.Controls
                         this.RowHeadersVisible = true;
                     };
 
+                    var imagePreview = new ToolStripMenuItem("Show Image");
+                    imagePreview.Click += (object clickSender, EventArgs clickArgs) =>
+                    {
+                        Clipboard.SetDataObject(this.GetClipboardContent());
+                        new PreviewForm().Show();
+                    };
+
                     var menu = new ContextMenuStrip();
                     menu.Items.Add(copy);
                     menu.Items.Add(copyWithHeaders);
+                    menu.Items.Add(imagePreview);
                     menu.Show(this, new Point(e.X, e.Y));
                 }
             }
