@@ -31,7 +31,7 @@ namespace ParquetViewer
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             recordsToLabel = new System.Windows.Forms.Label();
@@ -86,6 +86,7 @@ namespace ParquetViewer
             mainStatusStrip = new System.Windows.Forms.StatusStrip();
             exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             openFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            viewBase64AsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             mainTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mainGridView).BeginInit();
             mainMenuStrip.SuspendLayout();
@@ -244,14 +245,14 @@ namespace ParquetViewer
             mainGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             mainGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             mainGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            mainGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            mainGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             mainGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             mainTableLayoutPanel.SetColumnSpan(mainGridView, 10);
             mainGridView.EnableHeadersVisualStyles = false;
@@ -470,7 +471,7 @@ namespace ParquetViewer
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { getSQLCreateTableScriptToolStripMenuItem, metadataViewerToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { getSQLCreateTableScriptToolStripMenuItem, metadataViewerToolStripMenuItem, viewBase64AsImageToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -596,6 +597,13 @@ namespace ParquetViewer
             openFolderDialog.Description = "Select a folder with parquet files";
             openFolderDialog.ShowNewFolderButton = false;
             // 
+            // viewBase64AsImageToolStripMenuItem
+            // 
+            viewBase64AsImageToolStripMenuItem.Name = "viewBase64AsImageToolStripMenuItem";
+            viewBase64AsImageToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            viewBase64AsImageToolStripMenuItem.Text = "View Base64 as Image";
+            viewBase64AsImageToolStripMenuItem.Click += viewBase64AsImageToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AllowDrop = true;
@@ -680,6 +688,7 @@ namespace ParquetViewer
         private System.Windows.Forms.FolderBrowserDialog openFolderDialog;
         private System.Windows.Forms.ToolStripMenuItem openFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shareAnonymousUsageDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewBase64AsImageToolStripMenuItem;
     }
 }
 

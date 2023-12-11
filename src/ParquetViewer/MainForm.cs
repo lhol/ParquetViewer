@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -481,6 +482,29 @@ namespace ParquetViewer
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void viewBase64AsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                try
+                {
+                    string[] a = Clipboard.GetText().Split("\"");
+                    byte[] b = Convert.FromBase64String(a[3]);
+                    using (MemoryStream ms = new MemoryStream(b))
+                    {
+                        Image i = Image.FromStream(ms);
+                        Clipboard.SetImage(i);
+                    }
+                } catch(Exception x) {
+                   
+                }
+            }
+            if (Clipboard.ContainsImage())
+            {
+                new PreviewForm().Show();
             }
         }
     }
